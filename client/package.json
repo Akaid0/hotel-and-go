@@ -43,7 +43,7 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://hotel-and-go.onrender.com/api/",
+  "proxy": "https://hotel-and-go.onrender.com/api",
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
   }
