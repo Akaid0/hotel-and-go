@@ -21,17 +21,17 @@ const Navbar = () => {
     <div className="navbar">
       <div className="navContainer">
         <Link to="/" style={{color:"inherit", textDecoration:"none"}}>
-          <span className="logo">Hotel & Go</span>
+          <span className="logo">Hotel&Go</span>
         </Link>
         {user ? (
         <div className="navItems" style={{display:"flex", flexDirection:"row"}}>
-          <div style={{display:"flex", alignItems:"center"}}>{user.username}</div>
-          <button onClick={handleLogout} className="navButton">Logout</button>
+          <div className="navUserName">{user.username}</div>
+          <button onClick={handleLogout} className="navButton">Sign out</button>
         </div>
           ) : (
         <div className="navItems">
           <button className="navButton">Register</button>
-          <button onClick={handleLogin} className="navButton">Login</button>
+          <button onClick={handleLogin} className="navButton">Sign in</button>
         </div>
         )}
       </div>

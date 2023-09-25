@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import "./reserve.css"
-import { faCircleXmark } from "@fortawesome/free-solid-svg-icons"
+import { AiOutlineClose} from "react-icons/ai"
 import useFetch from "../../hooks/useFetch.js"
 import { useContext, useState } from "react"
 import { SearchContext } from "../../context/SearchContext.js"
@@ -8,7 +8,7 @@ import axios from "axios"
 import { useNavigate } from "react-router-dom";
 
 const Reserve = ({setOpen, hotelId}) => {
-    const {data, loading, error} = useFetch(`/room/${hotelId}`)
+    const {data, loading, error} = useFetch(`https://hotel-and-go.onrender.com/api/hotels/room/${hotelId}`)
     const [selectedRooms, setSelectedRooms] = useState([])
     const {dates} = useContext(SearchContext)
 
@@ -59,15 +59,18 @@ const Reserve = ({setOpen, hotelId}) => {
   return (
     <div className="reserve">
         <div className="rContainer">
-            <FontAwesomeIcon icon={faCircleXmark} className="rClose" onClick={() => setOpen(false)} />
-            <span>Select your rooms: </span>
-            {data.map((item) => (
+            <AiOutlineClose className="rClose" onClick={() => setOpen(false)} />
+            <div className="rHeader">
+                <span>Select your room : </span>
+            </div>
+            <div className="rRoomWrapper">
+                {data.map((item) => (
                     <div className="rItem" key={item._id}>
                         <div className="rItemInfo">
                             <div className="rTitle">{item.title}</div>
                             <div className="rDesc">{item.desc}</div>
                             <div className="rMax">Max people : <b>{item.maxPeople}</b></div>
-                            <div className="rPrice">{item.price}</div>
+                            <div className="rPrice">${item.price} per night</div>
                         </div>
                         <div className="rSelectRooms">
                             {item.roomNumbers.map((roomNumber) => (
@@ -79,7 +82,10 @@ const Reserve = ({setOpen, hotelId}) => {
                         </div>
                     </div>
                 ))}
+            </div>
+            <div className="rButtonWrapper">
                 <button onClick={handleClick} className="rButton">Reserve Now</button>
+            </div>
         </div>
     </div>
   )

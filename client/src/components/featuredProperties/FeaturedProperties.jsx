@@ -2,7 +2,7 @@ import useFetch from "../../hooks/useFetch.js";
 import "./featuredProperties.css";
 
 const FeaturedProperties = () => {
-  const {data, loading, error, reFetch} = useFetch("/hotels?featured=true&limit=4");
+  const {data, loading, error, reFetch} = useFetch("https://hotel-and-go.onrender.com/api/hotels?featured=true&limit=4");
 
   return (
     <div className="fp">

@@ -1,11 +1,13 @@
 import {
-  faBed,
-  faCalendarDays,
+  faBed, 
   faCar,
-  faPerson,
   faPlane,
   faTaxi,
 } from "@fortawesome/free-solid-svg-icons";
+import {LiaBedSolid} from "react-icons/lia"
+import {BsCalendar3} from "react-icons/bs"
+import {GoPerson} from "react-icons/go"
+import {AiOutlineMinus} from "react-icons/ai"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./header.css";
 import { DateRange } from "react-date-range";
@@ -65,36 +67,42 @@ const Header = ({ type }) => {
             <FontAwesomeIcon icon={faBed} />
             <span>Stays</span>
           </div>
-          <div className="headerListItem">
-            <FontAwesomeIcon icon={faPlane} />
-            <span>Flights</span>
-          </div>
-          <div className="headerListItem">
-            <FontAwesomeIcon icon={faCar} />
-            <span>Car rentals</span>
-          </div>
-          <div className="headerListItem">
-            <FontAwesomeIcon icon={faBed} />
-            <span>Attractions</span>
-          </div>
-          <div className="headerListItem">
-            <FontAwesomeIcon icon={faTaxi} />
-            <span>Airport taxis</span>
+          <div className="headerComingSoon">
+            <div className="headerNavCategory">
+              <div className="headerListItem">
+                <FontAwesomeIcon icon={faPlane} />
+                <span>Flights</span>
+              </div>
+              <div className="headerListItem">
+                <FontAwesomeIcon icon={faCar} />
+                <span>Car rentals</span>
+              </div>
+              <div className="headerListItem">
+                <FontAwesomeIcon icon={faBed} />
+                <span>Attractions</span>
+              </div>
+              <div className="headerListItem">
+                <FontAwesomeIcon icon={faTaxi} />
+                <span>Airport taxis</span>
+              </div>
+            </div>
+            <div className="headerNavCategoryComment">
+              <span>New features coming soon !</span>
+            </div>
           </div>
         </div>
         {type !== "list" && (
           <>
             <h1 className="headerTitle">
-              A lifetime of discounts? It's Genius.
+            Find your next stay
             </h1>
             <p className="headerDesc">
-              Get rewarded for your travels – unlock instant savings of 10% or
-              more with a free Lamabooking account
+            Search low prices on hotels, homes and much more...
             </p>
             {!user && <button className="headerBtn">Sign in / Register</button>}
             <div className="headerSearch">
               <div className="headerSearchItem">
-                <FontAwesomeIcon icon={faBed} className="headerIcon" />
+                <LiaBedSolid className="headerIcon" />
                 <input
                   type="text"
                   placeholder="Where are you going?"
@@ -103,14 +111,13 @@ const Header = ({ type }) => {
                 />
               </div>
               <div className="headerSearchItem">
-                <FontAwesomeIcon icon={faCalendarDays} className="headerIcon" />
+                <BsCalendar3 className="headerIcon" />
                 <span
                   onClick={() => setOpenDate(!openDate)}
                   className="headerSearchText"
-                >{`${format(dates[0].startDate, "MM/dd/yyyy")} to ${format(
-                  dates[0].endDate,
-                  "MM/dd/yyyy"
-                )}`}</span>
+                >
+                  {dates[0].startDate === null ? `${format(dates[0].startDate, "MM/dd/yyyy")}` : "Check-in date"  } &#8212; {dates[0].endDate === null ? `${format(dates[0].endDate, "MM/dd/yyyy")}` : "Check-out date" }
+                </span>
                 {openDate && (
                   <DateRange
                     editableDateInputs={true}
@@ -123,11 +130,11 @@ const Header = ({ type }) => {
                 )}
               </div>
               <div className="headerSearchItem">
-                <FontAwesomeIcon icon={faPerson} className="headerIcon" />
+                <GoPerson className="headerIcon" />
                 <span
                   onClick={() => setOpenOptions(!openOptions)}
                   className="headerSearchText"
-                >{`${options.adult} adult · ${options.children} children · ${options.room} room`}</span>
+                >{`${options.adult} adult`} &#8226; {`${options.children} children`} &#8226; {`${options.room} room`}</span>
                 {openOptions && (
                   <div className="options">
                     <div className="optionItem">
@@ -196,11 +203,9 @@ const Header = ({ type }) => {
                   </div>
                 )}
               </div>
-              <div className="headerSearchItem">
-                <button className="headerBtn" onClick={handleSearch}>
+              <button className="headerBtn" onClick={handleSearch}>
                   Search
-                </button>
-              </div>
+              </button>
             </div>
           </>
         )}

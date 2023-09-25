@@ -11,17 +11,34 @@
   }
   
   .rContainer {
-    background-color: white;
-    padding: 20px;
     position: relative;
+    background-color: white;
+    padding: 0.5%;
+    position: relative;
+    height: 90%;
+    border-radius: 10px;
   }
   
+  .rHeader{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 5%;
+  }
+
   .rClose {
-    margin: 10px;
+    margin: 11.5px 7.5px;
     position: absolute;
     top: 0;
     right: 0;
     cursor: pointer;
+    font-size: 20px;
+  }
+
+  .rRoomWrapper{
+    overflow-y: auto;
+    z-index: 1;
+    height: 87.5%;
   }
   
   .rItem {
@@ -67,6 +84,15 @@
     flex-direction: column;
   }
   
+  .rButtonWrapper{
+    background-color: white ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: fit-content;
+    margin: 7.5px 0; 
+  }
+
   .rButton {
     border: none;
     padding: 10px 20px;
@@ -76,5 +102,4 @@
     cursor: pointer;
     border-radius: 5px;
     width: 100%;
-    margin-top: 20px;
   }

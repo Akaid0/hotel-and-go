@@ -12,7 +12,7 @@ const NewRoom = () => {
   const [hotelId, setHotelId] = useState(undefined);
   const [rooms, setRooms] = useState([]);
 
-  const {data, loading, error} = useFetch("/hotels/");
+  const {data, loading, error} = useFetch("https://hotel-and-go.onrender.com/api/hotels/");
 
   const handleChange = (e) => {
     setInfo((prev) => ({...prev, [e.target.id]: e.target.value }));

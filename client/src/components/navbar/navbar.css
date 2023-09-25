@@ -1,6 +1,7 @@
 .navbar{
-  height: 50px;
-  background-color: #003580;
+  padding-top: 10px;
+  height: 60px;
+  background-color: #003B95;
   display: flex;
   justify-content: center;
 }
@@ -15,13 +16,26 @@
 }
 
 .logo{
-  font-weight: 500;
+  font-weight: 700;
+  font-size: 24px;
+  margin-left: 20px ;
+}
+
+.navUserName{
+  display: flex;
+  align-items: center;
+  font-size: 14px;
 }
 
 .navButton{
   margin-left: 20px;
   border: none;
-  padding: 5px 10px;
+  padding: 6px 10px;
   cursor: pointer;
-  color: #003580;
+  color: #006ce4;
+  font-weight: 500;
+  border: 1px solid #006ce4;
+  border-radius: 3px;
+  font-size: 14px;
+  line-height: 20px;
 }
