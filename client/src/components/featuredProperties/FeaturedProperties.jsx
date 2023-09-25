@@ -7,7 +7,7 @@ const FeaturedProperties = () => {
   return (
     <div className="fp">
       {loading ? (
-      "Loading"
+      <div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
       ) : (
         <>
           {data?.map((item) => (
@@ -17,15 +17,19 @@ const FeaturedProperties = () => {
                 alt=""
                 className="fpImg"
               />
-              <span className="fpName">{item.name}</span>
-              <span className="fpCity">{item.city}</span>
-              <span className="fpPrice">Starting from ${item.cheapestPrice}</span>
-              {item.rating && 
-              <div className="fpRating">
-                <button>{item.rating}</button>
-                <span>Excellent</span>
+              <div className="fpText">
+                <div className="fpInfo">
+                  <span className="fpName">{item.name}</span>
+                  <span className="fpCity">{item.city}</span>
+                </div>
+                <span className="fpPrice">Starting from ${item.cheapestPrice.toLocaleString()}</span>
+                {item.rating && 
+                <div className="fpRating">
+                  <button>{item.rating}</button>
+                  <span>Excellent</span>
+                </div>
+                }
               </div>
-              }
             </div>
           ))}
         </>

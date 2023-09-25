@@ -15,7 +15,7 @@ const PropertyList = () => {
   return (
     <div className="pList">
       { loading ? (
-        "loading"
+        <div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
       ) : (
       <>
         {data && images.map((img, i) => (

@@ -2,6 +2,8 @@ import "./sidebar.scss";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
+import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
+import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 import CreditCardIcon from "@mui/icons-material/CreditCard";
 import StoreIcon from "@mui/icons-material/Store";
 import InsertChartIcon from "@mui/icons-material/InsertChart";
@@ -17,87 +19,100 @@ import { useContext } from "react";
 
 const Sidebar = () => {
   const { dispatch } = useContext(DarkModeContext);
+  const { darkMode } = useContext(DarkModeContext);
+
+  function handleLogout() {
+    localStorage.removeItem('user');
+    window.location.reload(false);
+  }
   return (
     <div className="sidebar">
       <div className="top">
         <Link to="/" style={{ textDecoration: "none" }}>
-          <span className="logo">lamadmin</span>
+          <span className="logo">Hotel & Go</span>
         </Link>
       </div>
-      <hr />
       <div className="center">
-        <ul>
-          <p className="title">MAIN</p>
-          <li>
-            <DashboardIcon className="icon" />
-            <span>Dashboard</span>
-          </li>
-          <p className="title">LISTS</p>
-          <Link to="/users" style={{ textDecoration: "none" }}>
+        <div>
+          <ul>
+            <p className="title main">MAIN</p>
+            <Link to="/" style={{ textDecoration: "none" }}>
+              <li>
+                <DashboardIcon className="icon" />
+                <span>Dashboard</span>
+              </li>
+            </Link>
+            <p className="title">LISTS</p>
+            <Link to="/users" style={{ textDecoration: "none" }}>
+              <li>
+                <PersonOutlineIcon className="icon" />
+                <span>Users</span>
+              </li>
+            </Link>
+            <Link to="/hotels" style={{ textDecoration: "none" }}>
+              <li>
+                <StoreIcon className="icon" />
+                <span>Hotels</span>
+              </li>
+            </Link>
+            <Link to="/rooms" style={{ textDecoration: "none" }}>
+              <li>
+                <CreditCardIcon className="icon" />
+                <span>Rooms</span>
+              </li>
+            </Link>
+            <div className="sbComingSoon">
+              <p className="title main coming">USEFUL (Coming soon)</p>
+              <li>
+                <InsertChartIcon className="icon" />
+                <span>Stats</span>
+              </li>
+              <li>
+                <NotificationsNoneIcon className="icon" />
+                <span>Notifications</span>
+              </li>
+              <p className="title coming">SERVICE (Coming soon)</p>
+              <li>
+                <SettingsSystemDaydreamOutlinedIcon className="icon" />
+                <span>System Health</span>
+              </li>
+              <li>
+                <PsychologyOutlinedIcon className="icon" />
+                <span>Logs</span>
+              </li>
+              <li>
+                <SettingsApplicationsIcon className="icon" />
+                <span>Settings</span>
+              </li>
+            </div>
+          </ul>
+        </div>
+
+        <div className="sbUser">
+          <ul>
+            <p className="title">USER</p>
             <li>
-              <PersonOutlineIcon className="icon" />
-              <span>Users</span>
+              <AccountCircleOutlinedIcon className="icon" />
+              <span>Profile</span>
             </li>
-          </Link>
-          <Link to="/hotels" style={{ textDecoration: "none" }}>
+              { darkMode ? 
+                <li onClick={() => dispatch({ type: "LIGHT" })}>
+                  <LightModeOutlinedIcon className="icon"/> 
+                  <span>Light mode</span>
+                </li>
+              :
+                <li onClick={() => dispatch({ type: "DARK" })}>
+                  <DarkModeOutlinedIcon className="icon"/> 
+                  <span>Dark mode</span>
+                </li>
+              }
             <li>
-              <StoreIcon className="icon" />
-              <span>Hotels</span>
+              <ExitToAppIcon className="icon" />
+              <span onClick={handleLogout}>Logout</span>
             </li>
-          </Link>
-          <Link to="/rooms" style={{ textDecoration: "none" }}>
-            <li>
-              <CreditCardIcon className="icon" />
-              <span>Rooms</span>
-            </li>
-          </Link>
-          <li>
-            <LocalShippingIcon className="icon" />
-            <span>Delivery</span>
-          </li>
-          <p className="title">USEFUL</p>
-          <li>
-            <InsertChartIcon className="icon" />
-            <span>Stats</span>
-          </li>
-          <li>
-            <NotificationsNoneIcon className="icon" />
-            <span>Notifications</span>
-          </li>
-          <p className="title">SERVICE</p>
-          <li>
-            <SettingsSystemDaydreamOutlinedIcon className="icon" />
-            <span>System Health</span>
-          </li>
-          <li>
-            <PsychologyOutlinedIcon className="icon" />
-            <span>Logs</span>
-          </li>
-          <li>
-            <SettingsApplicationsIcon className="icon" />
-            <span>Settings</span>
-          </li>
-          <p className="title">USER</p>
-          <li>
-            <AccountCircleOutlinedIcon className="icon" />
-            <span>Profile</span>
-          </li>
-          <li>
-            <ExitToAppIcon className="icon" />
-            <span>Logout</span>
-          </li>
-        </ul>
-      </div>
-      <div className="bottom">
-        <div
-          className="colorOption"
-          onClick={() => dispatch({ type: "LIGHT" })}
-        ></div>
-        <div
-          className="colorOption"
-          onClick={() => dispatch({ type: "DARK" })}
-        ></div>
-      </div>
+          </ul>
+        </div>
+      </div> 
     </div>
   );
 };

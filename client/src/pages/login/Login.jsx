@@ -24,7 +24,7 @@ const Login = () => {
         try {
             const res = await axios.post("https://hotel-and-go.onrender.com/api/auth/login", credentials) 
             dispatch({type:"LOGIN_SUCCESS", payload: res.data.details})
-            navigate("/")
+            window.history.back()
         } catch (err) {
             dispatch({type:"LOGIN_FAILURE", payload: err.response.data})
         }
@@ -32,6 +32,13 @@ const Login = () => {
 
   return (
     <div className='login'>
+        <h1 className='lTitle'><a href="/">Hotel & Go</a></h1>
+        <div className='post-it'>
+            <h1>Registration is closed</h1>
+            <p style={{marginBottom:"25px"}}>Try to connect using these credentials :</p>
+            <p style={{marginLeft:"50px"}}>username : user</p>
+            <p style={{marginLeft:"50px"}}>password : user</p>
+        </div>
         <div className="lContainer">
             <input type="text" placeholder='username' id='username' onChange={handleChange} className="lInput" />
             <input type="text" placeholder='password' id='password' onChange={handleChange} className="lInput" />
@@ -40,6 +47,6 @@ const Login = () => {
         </div>
     </div>
   )
-}
+} 
 
 export default Login

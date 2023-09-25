@@ -56,6 +56,10 @@ const Reserve = ({setOpen, hotelId}) => {
     };
 
 
+    function DescLimit(text, count){
+        return text.slice(0, count) + (text.length > count ? "..." : "");
+    }
+
   return (
     <div className="reserve">
         <div className="rContainer">
@@ -64,19 +68,19 @@ const Reserve = ({setOpen, hotelId}) => {
                 <span>Select your room : </span>
             </div>
             <div className="rRoomWrapper">
-                {data.map((item) => (
-                    <div className="rItem" key={item._id}>
+                {data?.map((item) => (
+                    <div className="rItem" key={item?._id}>
                         <div className="rItemInfo">
-                            <div className="rTitle">{item.title}</div>
-                            <div className="rDesc">{item.desc}</div>
-                            <div className="rMax">Max people : <b>{item.maxPeople}</b></div>
-                            <div className="rPrice">${item.price} per night</div>
+                            <div className="rTitle">{item?.title}</div>
+                            <div className="rDesc">{DescLimit(item?.desc, 161)}</div>
+                            <div className="rMax">Max people : <b>{item?.maxPeople}</b></div>
+                            <div className="rPrice">${item?.price.toLocaleString()} per night</div>
                         </div>
                         <div className="rSelectRooms">
-                            {item.roomNumbers.map((roomNumber) => (
-                                <div className="room" key={roomNumber._id}>
-                                    <label>{roomNumber.number}</label>
-                                    <input type="checkbox" value={roomNumber._id} onChange={handleSelect} disabled={!isAvailable(roomNumber)} />
+                            {item?.roomNumbers?.map((roomNumber) => (
+                                <div className="room" key={roomNumber?._id}>
+                                    <label>{roomNumber?.number}</label>
+                                    <input type="checkbox" value={roomNumber?._id} onChange={handleSelect} disabled={!isAvailable(roomNumber)} />
                                 </div>
                             ))}
                         </div>

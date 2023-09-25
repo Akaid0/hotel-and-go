@@ -24,6 +24,9 @@ const List = () => {
   const handleClick = () => {
     reFetch()
   }
+  const handleChange = (dest) => {
+    setDestination(dest.target.value)
+  }
 
   return (
     <div>
@@ -35,7 +38,7 @@ const List = () => {
             <h1 className="lsTitle">Search</h1>
             <div className="lsItem">
               <label>Destination</label>
-              <input placeholder={destination} type="text" />
+              <input placeholder={destination} onChange={handleChange} type="text" />
             </div>
             <div className="lsItem">
               <label>Check-in Date</label>
@@ -99,7 +102,9 @@ const List = () => {
           </div>
           <div className="listResult">
             {
-              loading ? "loading" : <>
+              loading ? 
+              <div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+              : <>
               {data.map(item => (
                   <SearchItem item={item} key={item._id}/>
               ))}

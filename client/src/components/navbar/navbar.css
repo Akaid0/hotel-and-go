@@ -1,5 +1,4 @@
 .navbar{
-  padding-top: 10px;
   height: 60px;
   background-color: #003B95;
   display: flex;
@@ -17,14 +16,24 @@
 
 .logo{
   font-weight: 700;
-  font-size: 24px;
-  margin-left: 20px ;
+  font-size: 27px;
+}
+.beta{
+  color:#ffb700 ;
+  border:1.5px solid #ffb700;
+  border-radius: 10px;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 3px 4px;
+  margin-left: 7.5px ;
+
 }
 
 .navUserName{
   display: flex;
   align-items: center;
   font-size: 14px;
+  text-transform: capitalize;
 }
 
 .navButton{

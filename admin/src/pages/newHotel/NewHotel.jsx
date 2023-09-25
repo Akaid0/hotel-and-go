@@ -6,8 +6,10 @@ import { useState } from "react";
 import { hotelInputs } from "../../formSource";
 import useFetch from "../../hooks/useFetch";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const NewHotel = () => {
+  const navigate = useNavigate()
   const [files, setFiles] = useState("");
   const [info, setInfo] = useState({});
   const [rooms, setRooms] = useState([]);
@@ -21,8 +23,6 @@ const NewHotel = () => {
     const value = Array.from(e.target.selectedOptions, option => option.value)
     setRooms(value);
   }
-
-  console.log(files)
 
   const handleClick = async (e) => {
     e.preventDefault()
@@ -46,11 +46,13 @@ const NewHotel = () => {
     } catch (err) {
       
     }
+    navigate("/hotels")
+
   }
 
   return (
     <div className="new">
-      <Sidebar />
+      <Sidebar /> 
       <div className="newContainer">
         <Navbar />
         <div className="top">

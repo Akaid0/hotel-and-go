@@ -1,18 +1,73 @@
+
+
+.post-it {
+  font-family: 'Permanent Marker', cursive !important;
+  transform: rotate(-15deg);
+ 	width:250px;
+  height:240px;
+  position:absolute;
+  right: 70%;
+  background:#ffa;
+  overflow:hidden;
+  margin:30px auto;
+  padding:20px;
+  border-radius:0 0 0 30px/45px;
+  box-shadow:
+    inset 0 -40px 40px rgba(0,0,0,0.2),
+    inset 0 25px 10px rgba(0,0,0,0.2),
+    0 5px 6px 5px rgba(0,0,0,0.2);
+  font-family: 'Permanent Marker', cursive;
+  line-height:1.7em;
+  font-size:15px;
+  color:black;
+}
+
+.post-it h1, .post-it p{
+  font-family: 'Permanent Marker', cursive !important;
+  letter-spacing: 1px;
+}
+
+.post-it h1 {
+  text-align: center;
+ 	font-size:25px; 
+  position:relative;
+  margin-bottom: 20px;
+}
+
+
+
+
 .login {
     height: 100vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color: #003580;
+  }
+
+  .lTitle{
+    position: absolute;
+    top: 10%;
+    font-size: 110px ;
+    font-weight: 800; 
+    color: white;
+  }
+
+  .lTitle>a{
+    text-decoration: none;
+    color: white;
   }
   
   .lContainer {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    width: 225px;
   }
   
   .lInput{
-    height: 30px;
+    height: 25px;
     padding: 10px;
   }
   

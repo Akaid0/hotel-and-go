@@ -39,12 +39,10 @@ const Footer = () => {
           <li className="fListItem">Careers</li>
           <li className="fListItem">Sustainability</li>
           <li className="fListItem">Press center</li>
-          <li className="fListItem">Safety Resource Center</li>
-          <li className="fListItem">Investor relations</li>
           <li className="fListItem">Terms & conditions</li>
         </ul>
       </div>
-      <div className="fText">Luca Hochedez 2023</div>
+      <span className="copyright">Hotel & go is a clone of Booking.com serving a training purpose on backend technologies - Luca 2023 </span>
     </div>
   );
 };

@@ -8,7 +8,7 @@ const Navbar = () => {
   const navigate = useNavigate()
 
   function handleLogout() {
-    localStorage.clear();
+    localStorage.removeItem('user');
     window.location.reload(false);
   }
 
@@ -20,8 +20,8 @@ const Navbar = () => {
   return (
     <div className="navbar">
       <div className="navContainer">
-        <Link to="/" style={{color:"inherit", textDecoration:"none"}}>
-          <span className="logo">Hotel&Go</span>
+        <Link to="/" style={{color:"inherit", textDecoration:"none", alignItems:"center",justifyContent:"center", display:"flex"}}>
+          <span className="logo">Hotel&Go</span><span className="beta">BETA</span>
         </Link>
         {user ? (
         <div className="navItems" style={{display:"flex", flexDirection:"row"}}>
@@ -30,7 +30,7 @@ const Navbar = () => {
         </div>
           ) : (
         <div className="navItems">
-          <button className="navButton">Register</button>
+          <button onClick={handleLogin} className="navButton">Register</button>
           <button onClick={handleLogin} className="navButton">Sign in</button>
         </div>
         )}

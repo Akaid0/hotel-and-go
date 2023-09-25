@@ -21,13 +21,16 @@ const RoomSchema = new mongoose.Schema({
     maxPeople:{
         type: Number,
         required: true
-    },
+    }, 
     roomNumbers:[{
         number: Number, 
         unavailableDates:{
             type: [Date],
         }
     }],
+    photos:{
+        type: [String]
+    },
 },
 { timestamps: true }
 );

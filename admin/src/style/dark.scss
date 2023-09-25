@@ -27,6 +27,13 @@
     background-color: #111;
     border-color: #333;
 
+    .sbComingSoon{
+      background-color: #252525;
+      li:hover{
+        background-color: #252525;
+      }
+    }
+
     .top {
       .logo {
         color: #999;
@@ -50,14 +57,49 @@
   }
 
   .datatable {
+    .MuiTablePagination-actions, .MuiButtonBase-root, .MuiDataGrid-selectedRowCount{
+      color: #999;
+    }
+    .MuiTablePagination-root{
+      color: #999;
+    }
+    .MuiDataGrid-cellContent{
+      color: #999;
+      text-transform: capitalize;
+    }
+    .MuiDataGrid-columnHeaderTitle{
+      color: #999;
+    }
+    .cellWithImg{
+      color: #999;
+      text-transform: capitalize;
+    }
+    .link{
+      background-color: green;
+      color: white;
+      border: 1px solid white;
+      padding: 5px 10px;
+    }
+    .viewButton {
+      padding: 5px 10px;
+      color: white;
+      background-color: #006ce4;
+      border: 1px solid white;
+    }
+    
+    .deleteButton {
+      padding: 5px 10px;
+      color: white;
+      background-color: crimson;
+      border: 1px solid white;
+    }
+
     .datagrid {
-      color: gray;
+      background-color: #252525;
       border: none;
 
-      .viewButton,
-      .deleteButton,
       .cellWithStatus {
-        color: gray;
+        color: #252525;
         border: none;
       }
     }
@@ -66,4 +108,55 @@
   input{
       background-color: transparent;
   }
+
+  .homeContainer{
+    .widget{
+      box-shadow: none;
+      background-color: #252525;
+      padding: 15px;
+    }
+    .featured{
+      box-shadow: none;
+      background-color: #252525;
+      padding: 15px;
+      border-radius: 10px;
+    }
+    .chart{
+      box-shadow: none;
+      background-color: #252525;
+      padding: 15px;
+      border-radius: 10px;
+    }
+    .listContainer{
+      box-shadow: none;
+      background-color: #252525;
+      padding: 15px;
+      border-radius: 10px;
+    }
+    .table{
+      background-color: #252525;
+    }
+  }
+
+  .new{
+    .newContainer{
+      .top{
+        box-shadow: none;
+        -webkit-box-shadow: none;
+        background-color: #252525;
+        padding: 15px;
+        border-radius: 10px;
+      }
+  
+      .bottom{
+        box-shadow: none;
+        -webkit-box-shadow: none;
+        background-color: #252525;
+        padding: 15px;
+        border-radius: 10px;
+      }
+    }
+  }
 }
+
+

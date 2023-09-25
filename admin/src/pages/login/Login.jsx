@@ -22,7 +22,7 @@ const Login = () => {
         e.preventDefault();
         dispatch({type:"LOGIN_START"})
         try {
-            const res = await axios.post("/auth/login", credentials)
+            const res = await axios.post("https://hotel-and-go.onrender.com/api/auth/login", credentials)
             if(res.data.isAdmin){
               dispatch({type:"LOGIN_SUCCESS", payload: res.data.details});
               navigate("/")
@@ -36,6 +36,18 @@ const Login = () => {
 
   return (
     <div className='login'>
+      <div className='lTitleWrapper'>
+        <a href="/">
+          <h1 className='lTitle'>Hotel & Go</h1>
+          <h2 className='lSubtitle'>Admin panel</h2>
+        </a>
+      </div>
+        <div className='post-it'>
+            <h1>Registration is closed</h1>
+            <p style={{marginBottom:"25px"}}>Try to connect using these credentials :</p>
+            <p style={{marginLeft:"50px"}}>username : user</p>
+            <p style={{marginLeft:"50px"}}>password : user</p>
+        </div>
         <div className="lContainer">
             <input type="text" placeholder='username' id='username' onChange={handleChange} className="lInput" />
             <input type="text" placeholder='password' id='password' onChange={handleChange} className="lInput" />

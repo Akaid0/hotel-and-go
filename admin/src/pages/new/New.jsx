@@ -3,9 +3,11 @@ import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 import { useState } from "react";
-import axios from "axios"
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const New = ({ inputs, title }) => {
+  const navigate = useNavigate()
   const [file, setFile] = useState("");
   const [info, setInfo] = useState({});
 
@@ -32,9 +34,9 @@ const New = ({ inputs, title }) => {
     } catch (err) {
       console.log(err)
     }
+    navigate("/users")
   }
 
-  console.log(info)
   return (
     <div className="new">
       <Sidebar />

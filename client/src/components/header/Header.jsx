@@ -55,6 +55,10 @@ const Header = ({ type }) => {
     navigate("/hotels", { state: { destination, dates, options } });
   };
 
+  function handleLogin() {
+    navigate("/login")
+  }
+
   return (
     <div className="header">
       <div
@@ -99,7 +103,7 @@ const Header = ({ type }) => {
             <p className="headerDesc">
             Search low prices on hotels, homes and much more...
             </p>
-            {!user && <button className="headerBtn">Sign in / Register</button>}
+            {!user && <button className="headerBtn btn2" onClick={handleLogin}>Sign in / Register</button>}
             <div className="headerSearch">
               <div className="headerSearchItem">
                 <LiaBedSolid className="headerIcon" />

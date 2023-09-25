@@ -10,7 +10,7 @@ import {
   faCircleXmark,
   faLocationDot,
 } from "@fortawesome/free-solid-svg-icons";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import useFetch from "../../hooks/useFetch.js"
 import { useLocation, useNavigate } from "react-router-dom";
 import { SearchContext } from "../../context/SearchContext";
@@ -63,12 +63,15 @@ const Hotel = () => {
     }
   }
 
+  const stayPrice = days * data.cheapestPrice * options.room
+  
+
   return (
     <div>
       <Navbar />
       <Header type="list" />
       {loading ? (
-        "loading"
+        <div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
       ) : (
         <div className="hotelContainer">
         {open && (
@@ -94,14 +97,14 @@ const Hotel = () => {
           </div>
         )}
         <div className="hotelWrapper">
-          <button className="bookNow">Reserve or Book Now!</button>
+          <button className="bookNow" onClick={handleClick}>Reserve or Book Now!</button>
           <h1 className="hotelTitle">{data.name}</h1>
           <div className="hotelAddress">
             <FontAwesomeIcon icon={faLocationDot} />
             <span>{data.address}</span>
           </div>
           <span className="hotelDistance">
-            Excellent location – {data.distance}m from center
+            Excellent location – {data.distance}km from center
           </span>
           <span className="hotelPriceHighlight">
             Book a stay over ${data.cheapestPrice} at this property and get a free airport taxi
@@ -132,7 +135,7 @@ const Hotel = () => {
                 excellent location score of 9.8!
               </span>
               <h2>
-                <b>${days * data.cheapestPrice * options.room}</b> ({days} nights)
+                <b>${stayPrice.toLocaleString()}</b> ({days} nights)
               </h2>
               <button onClick={handleClick} >Reserve or Book Now!</button>
             </div>

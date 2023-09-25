@@ -1,6 +1,23 @@
 .datatable {
-  height: 600px;
-  padding: 20px;
+  height: 575px;
+  padding: 15px;
+      border-radius: 10px;
+
+  .datagrid{
+    padding: 10px;
+  }
+  .MuiDataGrid-footerContainer{
+    padding-top: 10px;
+  }
+  .MuiDataGrid-columnHeaders{
+    display: flex;
+    justify-content: space-between;
+  }
+  .MuiDataGrid-columnHeadersInner, .css-yrdy0g-MuiDataGrid-columnHeaderRow{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
   
   .datatableTitle{
     width: 100%;
@@ -10,14 +27,16 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    text-transform: capitalize;
 
     .link{
       text-decoration: none;
-      color: green;
+      background-color: green;
+      color: white;
+      border: 1px solid white;
+      padding: 5px 10px;
       font-size: 16px;
       font-weight: 400;
-      border: 1px solid green;
-      padding: 5px;
       border-radius: 5px;
       cursor: pointer;
     }
@@ -60,18 +79,20 @@
     gap: 15px;
 
     .viewButton {
-      padding: 2px 5px;
+      padding: 5px 10px;
       border-radius: 5px;
-      color: darkblue;
-      border: 1px dotted rgba(0, 0, 139, 0.596);
+      color: white;
+      background-color: #006ce4;
+      border: 1px solid white;
       cursor: pointer;
     }
     
     .deleteButton {
-      padding: 2px 5px;
+      padding: 5px 10px;
       border-radius: 5px;
-      color: crimson;
-      border: 1px dotted rgba(220, 20, 60, 0.6);
+      color: white;
+      background-color: crimson;
+      border: 1px solid rgba(220, 20, 60, 0.6);
       cursor: pointer;
     }
   }
