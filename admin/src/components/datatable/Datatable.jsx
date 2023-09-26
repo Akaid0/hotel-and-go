@@ -16,9 +16,6 @@ const Datatable = ({columns}) => {
     setList(data)
   },[data])
 
-  console.log(data)
-  
-
   const handleDelete = async (id) => {
     try {
       await axios.delete(`https://hotel-and-go.onrender.com/api/${path}/${id}`)
