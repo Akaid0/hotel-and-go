@@ -8,9 +8,22 @@
   
   .lContainer {
     display: flex;
+    position: relative;
     flex-direction: column;
     gap: 10px;
     width: 225px;
+
+    span{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      color: red;
+      -webkit-text-stroke: 0.1px black;
+      top: -20%;
+      left: -20px;
+      width: 265px;
+    }
   }
 
   .lTitleWrapper{

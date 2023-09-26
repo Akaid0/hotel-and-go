@@ -43,10 +43,10 @@ const Login = () => {
         </a>
       </div>
         <div className='post-it'>
-            <h1>Registration is closed</h1>
-            <p style={{marginBottom:"25px"}}>Try to connect using these credentials :</p>
-            <p style={{marginLeft:"50px"}}>username : user</p>
-            <p style={{marginLeft:"50px"}}>password : user</p>
+            <h1>Admin panel is not accessible</h1>
+            <p style={{marginBottom:"25px"}}>For security reason the admin panel is not yet accessible.</p>
+            <p >New features coming soon :</p>
+            <p >Multi-vendor admin panel, creation of your own hotel pages and statistics</p>
         </div>
         <div className="lContainer">
             <input type="text" placeholder='username' id='username' onChange={handleChange} className="lInput" />
