@@ -19,10 +19,10 @@ const NewHotel = () => {
     setInfo((prev) => ({ ...prev, [e.target.id]: e.target.value}));
   };
 
-  const handleSelect = (e) => {
-    const value = Array.from(e.target.selectedOptions, option => option.value)
-    setRooms(value);
-  }
+  // const handleSelect = (e) => {
+  //   const value = Array.from(e.target.selectedOptions, option => option.value)
+  //   setRooms(value);
+  // }
 
   const handleClick = async (e) => {
     e.preventDefault()
@@ -38,7 +38,7 @@ const NewHotel = () => {
 
       const newhotel = {
         ...info, 
-        rooms, 
+        // rooms, 
         photos: list,
       };
 
@@ -68,7 +68,41 @@ const NewHotel = () => {
               }
               alt=""
             />
+            <div className="mosaic">
+                  <img
+                  src={
+                    files[1]
+                      ? URL.createObjectURL(files[1])
+                      : " "
+                  }
+                  alt=""
+                />
+                <img
+                  src={
+                    files[2]
+                      ? URL.createObjectURL(files[2])
+                      : " "
+                  }
+                  alt=""
+                />
+                <img
+                  src={
+                    files[3]
+                      ? URL.createObjectURL(files[3])
+                      : " "
+                  }
+                  alt=""
+                /><img
+                src={
+                  files[4]
+                    ? URL.createObjectURL(files[4])
+                    : " "
+                }
+                alt=""
+              />
+            </div>
           </div>
+
           <div className="right">
             <form>
               <div className="formInput">
@@ -90,21 +124,37 @@ const NewHotel = () => {
                   <input id={input.id} onChange={handleChange} type={input.type} placeholder={input.placeholder} />
                 </div>
               ))}
-              <div className="formInput" >
-                  <label>Featured</label>
-                  <select id="featured" onChange={handleChange}>
-                    <option value={false}>No</option>
-                    <option value={true}>Yes</option>
-                  </select>
+                <div className="boolean formInput">
+                  <div className="booleandiv" >
+                    <label>Featured</label>
+                    <select id="featured" onChange={handleChange}>
+                      <option value={false}>No</option>
+                      <option value={true}>Yes</option>
+                    </select>
+                  </div>
+                  <div className="booleandiv" >
+                    <label>Free cancellation</label>
+                    <select id="cancellation" onChange={handleChange}>
+                      <option value={false}>No</option>
+                      <option value={true}>Yes</option>
+                    </select>
+                  </div>
+                  <div className="booleandiv" >
+                    <label>Free Airport taxi</label>
+                    <select id="taxi" onChange={handleChange}>
+                      <option value={false}>No</option>
+                      <option value={true}>Yes</option>
+                    </select>
+                  </div>
                 </div>
-                <div className="selectRooms" >
+                {/* <div className="selectRooms" >
                   <label>Rooms</label>
                   <select id="rooms" multiple onChange={handleSelect}>
                     {loading ? "loading" : data && data.map(room => (
                       <option key={room._id} value={room._id}>{room.title}</option>
                     ))}
                   </select>
-                </div>
+                </div> */}
               <button onClick={handleClick}>Send</button>
             </form>
           </div>

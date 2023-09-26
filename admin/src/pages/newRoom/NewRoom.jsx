@@ -27,7 +27,6 @@ const NewRoom = () => {
     setInfo((prev) => ({...prev, [e.target.id]: e.target.value }));
   }
 
-  console.log(files)
 
   const handleClick = async (e) => {
     e.preventDefault();
@@ -74,6 +73,39 @@ const NewRoom = () => {
               }
               alt=""
             />
+            <div className="mosaic">
+                  <img
+                  src={
+                    files[1]
+                      ? URL.createObjectURL(files[1])
+                      : " "
+                  }
+                  alt=""
+                />
+                <img
+                  src={
+                    files[2]
+                      ? URL.createObjectURL(files[2])
+                      : " "
+                  }
+                  alt=""
+                />
+                <img
+                  src={
+                    files[3]
+                      ? URL.createObjectURL(files[3])
+                      : " "
+                  }
+                  alt=""
+                /><img
+                src={
+                  files[4]
+                    ? URL.createObjectURL(files[4])
+                    : " "
+                }
+                alt=""
+              />
+            </div>
           </div>
           <div className="right">
             <form>

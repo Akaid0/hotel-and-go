@@ -80,7 +80,7 @@ export const hotelInputs = [
     id: "type",
     label: "Type",
     type: "text",
-    placeholder: "hotel",
+    placeholder: "hotel, apartment, villa, resort or cabin",
   },
   {
     id: "city",
@@ -97,7 +97,7 @@ export const hotelInputs = [
   {
     id: "distance",
     label: "Distance from City Center",
-    type: "text",
+    type: "number",
     placeholder: "500",
   },
   {
@@ -107,15 +107,21 @@ export const hotelInputs = [
     placeholder: "The best Hotel",
   },
   {
+    id: "subtitle",
+    label: "Subtitle",
+    type: "text",
+    placeholder: "Studio apartment with air conditioning",
+  },
+  {
     id: "desc",
     label: "Description",
-    type: "text",
+    type: "textarea",
     placeholder: "description",
   },
   {
     id: "cheapestPrice",
     label: "Price",
-    type: "text",
+    type: "number",
     placeholder: "100",
   },
 ];

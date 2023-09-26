@@ -22,14 +22,30 @@
         flex: 1;
         text-align: center;
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
+        gap: 30px !important;
 
         img {
           width: 250px;
           height: 250px;
           border-radius: 50%;
           object-fit: cover;
+        }
+
+        .mosaic{
+          display: flex;
+          flex-direction: row;
+          gap: 10px;
+
+          img{
+            width: 80px;
+            height: 80px;
+            border: 1px solid grey;
+            border-radius: unset;
+            background-color: rgb(241, 241, 241);
+          }
         }
       }
 
@@ -53,7 +69,7 @@
           }
 
           .formInput {
-            width: 40%;
+            width: 45%;
 
             label {
               display: flex;
@@ -70,6 +86,20 @@
               padding: 5px;
               border: none;
               border-bottom: 1px solid gray;
+            }
+          }
+          .boolean{
+            display: flex;
+            flex-direction: row !important;
+            width: 45% !important;
+            justify-content: space-between;
+
+            .booleandiv{
+              width: fit-content;
+              display: flex;
+              align-items: center;
+              flex-direction: column;
+              gap: 5px;
             }
           }
 
