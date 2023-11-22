@@ -9,6 +9,7 @@ const Navbar = () => {
 
   function handleLogout() {
     localStorage.removeItem('user');
+    navigate("/")
     window.location.reload(false);
   }
 
